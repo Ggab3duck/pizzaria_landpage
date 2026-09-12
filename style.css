@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.header {
+    background: linear-gradient(to bottom, orange, rgb(255, 166, 0));
+    /* background-color: orange; */
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    width: 100%;
+    
+}
+body{
+    overflow-x: hidden;
+    background-image: url(./imgs/pizzaria_background.png);
+    background-position: center;
+    background-size: contain;
+    /* background-repeat: no-repeat; */
+}
+body .header h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.header .buttons {
+    position: absolute;
+    right: 50px;
+    margin-top: 50px;
+    gap: 10%;
+    display: flex;
+}
+
+.header .buttons button {
+    /* border: none; */
+    border-radius: 15%;
+    background-color: rgba(138, 0, 0, 0.568);
+    color: rgb(240, 240, 240);
+    margin: 0% 5%;
+    width: 100px;
+    height: 30px;
+}
+
+.slider {
+    /* border: solid; */
+    margin: 0 auto;
+    height: auto;
+    padding: auto;
+    width: 80%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 5% 0;
+    border-radius: 10%;
+    justify-content: center;
+}
+
+.container {
+    /* border: solid red; */
+    width: 400%;
+    display: flex;
+    /* padding: 5% 0; */
+}
+
+.container input {
+    display: none;
+
+}
+
+.main-banner {
+    width: 25%;
+    /*instável, por favor não tirar*/
+    height: 500px;
+    position: relative;
+    justify-content: center;
+    /* border: solid */
+    border-radius: 5%;
+}
+.main-banner::after{
+    border-radius: 5%;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255, 166, 0, 0.336), rgba(180, 3, 3, 0));
+}
+.nav-manual,
+.nav-auto {
+    /* border: solid; */
+    position: absolute;
+    width: 80%;
+    height: auto;
+    /* border: solid; */
+    /* margin-top: 45%; */
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    /* left: 45%; */
+    top: 110%;
+}
+
+.nav-manual .botao-manual,
+.nav-auto div {
+    border: solid 1px;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.nav-manual .botao-manual:hover {
+    background-color: rgb(160, 144, 2);
+}
+
+#radio1:checked~.nav-auto .auto-button1 {
+    background-color: black;
+}
+
+#radio2:checked~.nav-auto .auto-button2 {
+    background-color: black;
+}
+
+#radio3:checked~.nav-auto .auto-button3 {
+    background-color: black;
+}
+
+#radio4:checked~.nav-auto .auto-button4 {
+    background-color: black;
+}
+
+#radio1:checked~.SlideOne {
+    margin-left: 0;
+}
+
+#radio2:checked~.SlideTwo {
+    margin-left: -25%;
+}
+
+#radio3:checked~.SlideThree {
+    margin-left: -50%;
+}
+
+#radio4:checked~.SlideFour {
+    margin-left: -75%;
+}
+
+.slider .main-banner img{
+    /* border: solid; */
+    height: 100%;
+    width: 100%;
+    /* object-fit: cover; */
+    /* object-position: center; */
+
+}
+
+.SlideOne{
+    background-image: url(./imgs/pizza_carrrosel1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.SlideTwo{
+    background-image: url(./imgs/pizza_carrrosel2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.SlideThree{
+    background-image: url(./imgs/pizza_carrrosel3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.SlideFour{
+    background-image: url(./imgs/pizza_carrrosel4.jpg);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+section .locais{
+    width: 100%;
+    height: 1000px;
+}

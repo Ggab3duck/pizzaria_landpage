@@ -2,70 +2,62 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
-.header {
-    background: linear-gradient(to bottom, orange, rgb(255, 166, 0));
-    /* background-color: orange; */
-    display: flex;
-    justify-content: center;
-    height: 120px;
-    width: 100%;
-    
-}
-body{
+body {
     overflow-x: hidden;
     background-image: url(./imgs/pizzaria_background.png);
     background-position: center;
     background-size: contain;
-    /* background-repeat: no-repeat; */
-}
-body .header h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* ---------- Header ---------- */
+.header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+    background: linear-gradient(to bottom, orange, rgb(255, 166, 0));
 }
 
 .header .buttons {
     position: absolute;
     right: 50px;
-    margin-top: 50px;
-    gap: 10%;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
+    gap: 10px;
 }
 
 .header .buttons button {
-    /* border: none; */
     border-radius: 15%;
     background-color: rgba(138, 0, 0, 0.568);
     color: rgb(240, 240, 240);
-    margin: 0% 5%;
     width: 100px;
     height: 30px;
+    cursor: pointer;
 }
 
+/* ---------- Carrossel ---------- */
 .slider {
-    /* border: solid; */
+    position: relative; /* referência para as bolinhas */
     margin: 0 auto;
-    height: auto;
-    padding: auto;
     width: 80%;
-    overflow-x: hidden;
-    overflow-y: hidden;
     padding: 5% 0;
+    overflow: hidden;
     border-radius: 10%;
-    justify-content: center;
 }
 
 .container {
-    /* border: solid red; */
     width: 400%;
     display: flex;
-    /* padding: 5% 0; */
 }
 
 .container input {
     display: none;
-
 }
 
 .main-banner {
@@ -73,30 +65,43 @@ body .header h1 {
     /*instável, por favor não tirar*/
     height: 500px;
     position: relative;
-    justify-content: center;
-    /* border: solid */
     border-radius: 5%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-.main-banner::after{
+
+.main-banner::after {
     border-radius: 5%;
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, rgba(255, 166, 0, 0.336), rgba(180, 3, 3, 0));
 }
+
+/* só o primeiro slide se move: assim a transição funciona */
+.SlideOne {
+    background-image: url(./imgs/pizza_carrrosel1.jpg);
+    transition: margin-left 0.6s ease;
+}
+.SlideTwo   { background-image: url(./imgs/pizza_carrrosel2.jpg); }
+.SlideThree { background-image: url(./imgs/pizza_carrrosel3.jpg); }
+.SlideFour  { background-image: url(./imgs/pizza_carrrosel4.jpg); }
+
+#radio1:checked ~ .SlideOne { margin-left: 0; }
+#radio2:checked ~ .SlideOne { margin-left: -25%; }
+#radio3:checked ~ .SlideOne { margin-left: -50%; }
+#radio4:checked ~ .SlideOne { margin-left: -75%; }
+
 .nav-manual,
 .nav-auto {
-    /* border: solid; */
     position: absolute;
-    width: 80%;
-    height: auto;
-    /* border: solid; */
-    /* margin-top: 45%; */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8%;
     display: flex;
     justify-content: center;
     gap: 5px;
-    /* left: 45%; */
-    top: 110%;
 }
 
 .nav-manual .botao-manual,
@@ -106,77 +111,115 @@ body .header h1 {
     border-radius: 50%;
 }
 
+.nav-manual .botao-manual {
+    cursor: pointer;
+}
+
 .nav-manual .botao-manual:hover {
     background-color: rgb(160, 144, 2);
 }
 
-#radio1:checked~.nav-auto .auto-button1 {
+#radio1:checked ~ .nav-auto .auto-button1,
+#radio2:checked ~ .nav-auto .auto-button2,
+#radio3:checked ~ .nav-auto .auto-button3,
+#radio4:checked ~ .nav-auto .auto-button4 {
     background-color: black;
 }
 
-#radio2:checked~.nav-auto .auto-button2 {
-    background-color: black;
+.cardapio {
+    width: 80%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px 5%;
+    background-color: rgba(255, 248, 235, 0.96);
+    border-radius: 20px;
 }
 
-#radio3:checked~.nav-auto .auto-button3 {
-    background-color: black;
+.cardapio h2 {
+    font-size: 2.2rem;
+    color: rgb(138, 0, 0);
+    text-align: center;
 }
 
-#radio4:checked~.nav-auto .auto-button4 {
-    background-color: black;
+.cardapio-sub {
+    text-align: center;
+    margin: 8px 0 32px;
+    color: #5a4a3a;
 }
 
-#radio1:checked~.SlideOne {
-    margin-left: 0;
+.categoria {
+    margin-bottom: 32px;
 }
 
-#radio2:checked~.SlideTwo {
-    margin-left: -25%;
+.categoria h3 {
+    font-size: 1.4rem;
+    color: rgb(138, 0, 0);
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid orange;
 }
 
-#radio3:checked~.SlideThree {
-    margin-left: -50%;
+.itens {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
 }
 
-#radio4:checked~.SlideFour {
-    margin-left: -75%;
+.item {
+    padding: 14px 16px;
+    background-color: #fff;
+    border-left: 4px solid orange;
+    border-radius: 8px;
 }
 
-.slider .main-banner img{
-    /* border: solid; */
-    height: 100%;
+.item-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.item h4 {
+    font-size: 1.05rem;
+}
+
+.preco {
+    font-weight: bold;
+    color: rgb(138, 0, 0);
+    white-space: nowrap;
+}
+
+.item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4a3d30;
+}
+
+/* ---------- Locais ---------- */
+section .locais {
     width: 100%;
-    /* object-fit: cover; */
-    /* object-position: center; */
-
+    min-height: 400px;
 }
 
-.SlideOne{
-    background-image: url(./imgs/pizza_carrrosel1.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.SlideTwo{
-    background-image: url(./imgs/pizza_carrrosel2.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.SlideThree{
-    background-image: url(./imgs/pizza_carrrosel3.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.SlideFour{
-    background-image: url(./imgs/pizza_carrrosel4.jpg);
-    background-position: center;
-    background-size:cover;
-    background-repeat: no-repeat;
-}
+/* ---------- Celular ---------- */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+        gap: 12px;
+    }
 
-section .locais{
-    width: 100%;
-    height: 1000px;
+    .header .buttons {
+        position: static;
+        transform: none;
+    }
+
+    .main-banner {
+        height: 300px;
+    }
+
+    .cardapio {
+        width: 92%;
+    }
 }

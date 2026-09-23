@@ -1,20 +1,30 @@
-const radio = document.querySelector('.botao-manual');
-let contagem = 1;
+const radios = document.querySelectorAll('input[name="btn-radio-carrosel"]');
+const INTERVALO = 5000; // 5 segundos por slide
 
-document.getElementById('radio1').checked = true;
+let atual = 0;
+let timer;
 
-function proximaImg(){
-    contagem++
-
-    if(contagem > 5){
-        contagem = 1;
-    }
-
-    document.getElementById('radio' + contagem).checked = true;
-    
+function mostrar(indice) {
+    atual = indice;
+    radios[atual].checked = true;
 }
 
-setInterval( () =>{
-    proximaImg();
-}, 5000) // 5000 é igual a 5 segunds, ou seja 5 segundos pra cada slide
+function proximaImg() {
+    mostrar((atual + 1) % radios.length);
+}
 
+function iniciarTimer() {
+    clearInterval(timer);
+    timer = setInterval(proximaImg, INTERVALO);
+}
+
+// quando o usuário clica numa bolinha, sincroniza o contador e reinicia o tempo
+radios.forEach((radio, indice) => {
+    radio.addEventListener('change', () => {
+        atual = indice;
+        iniciarTimer();
+    });
+});
+
+mostrar(0);
+iniciarTimer();

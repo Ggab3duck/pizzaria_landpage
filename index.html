@@ -1,47 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzaria artesanalde</title>
+    <title>Pizzaria artesanal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="header">
+    <header class="header">
         <div class="title">
             <h1>Pizzaria artesanal</h1>
         </div>
 
         <div class="buttons">
             <button>Entrar</button>
-            <button>Cadrastar</button>
+            <button>Cadastrar</button>
         </div>
-    </div>
-    <main>
-        <div class="slider"> <!--slider do carrosel-->
+    </header>
 
+    <main>
+        <div class="slider">
             <div class="container">
-                <input type="radio" name="btn-radio-carrosel" id="radio1">
+                <input type="radio" name="btn-radio-carrosel" id="radio1" checked>
                 <input type="radio" name="btn-radio-carrosel" id="radio2">
                 <input type="radio" name="btn-radio-carrosel" id="radio3">
                 <input type="radio" name="btn-radio-carrosel" id="radio4">
 
-                <!--botões de navegação-->
-
-                <div class="main-banner SlideOne">
-                    <!-- <img src="./imgs/pizza_carrrosel1.jpg" alt=""> -->
-                </div>
-                <div class="main-banner SlideTwo">
-                    <!-- <img src="./imgs/pizza_carrrosel2.jpg" alt=""> -->
-                </div>
-                <div class="main-banner SlideThree">
-                    <!-- <img src="./imgs/pizza_carrrosel3.jpg" alt=""> -->
-                </div>
-                <div class="main-banner SlideFour">
-                    <!-- <img src="./imgs/pizza_carrrosel4.jpg" alt=""> -->
-                </div>
+                <div class="main-banner SlideOne" role="img" aria-label="Pizza saindo do forno a lenha"></div>
+                <div class="main-banner SlideTwo" role="img" aria-label="Pizza de calabresa"></div>
+                <div class="main-banner SlideThree" role="img" aria-label="Pizza de queijos"></div>
+                <div class="main-banner SlideFour" role="img" aria-label="Pizza doce"></div>
 
                 <div class="nav-auto">
                     <div class="auto-button1"></div>
@@ -51,20 +41,92 @@
                 </div>
 
                 <div class="nav-manual">
-                    <label for="radio1" class="botao-manual"></label>
-                    <label for="radio2" class="botao-manual"></label>
-                    <label for="radio3" class="botao-manual"></label>
-                    <label for="radio4" class="botao-manual"></label>
+                    <label for="radio1" class="botao-manual" aria-label="Slide 1"></label>
+                    <label for="radio2" class="botao-manual" aria-label="Slide 2"></label>
+                    <label for="radio3" class="botao-manual" aria-label="Slide 3"></label>
+                    <label for="radio4" class="botao-manual" aria-label="Slide 4"></label>
                 </div>
             </div>
-
         </div>
     </main>
-    <section>
-        <div class="locais">
-            
+
+    <section class="cardapio" id="cardapio">
+        <h2>Cardápio</h2>
+        <p class="cardapio-sub">Massa de fermentação longa, assada em forno a lenha. Preço da pizza grande (8 fatias).</p>
+
+        <div class="categoria">
+            <h3>Tradicionais</h3>
+            <div class="itens">
+                <article class="item">
+                    <div class="item-topo"><h4>Margherita</h4><span class="preco">R$ 52</span></div>
+                    <p>Molho de tomate, muçarela, tomate fresco e manjericão.</p>
+                </article>
+                <article class="item">
+                    <div class="item-topo"><h4>Calabresa</h4><span class="preco">R$ 54</span></div>
+                    <p>Muçarela, calabresa fatiada, cebola e orégano.</p>
+                </article>
+                <article class="item">
+                    <div class="item-topo"><h4>Portuguesa</h4><span class="preco">R$ 58</span></div>
+                    <p>Muçarela, presunto, ovo, cebola, ervilha e azeitona.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="categoria">
+            <h3>Especiais</h3>
+            <div class="itens">
+                <article class="item">
+                    <div class="item-topo"><h4>Quatro queijos</h4><span class="preco">R$ 62</span></div>
+                    <p>Muçarela, provolone, gorgonzola e parmesão.</p>
+                </article>
+                <article class="item">
+                    <div class="item-topo"><h4>Frango com catupiry</h4><span class="preco">R$ 60</span></div>
+                    <p>Frango desfiado temperado e catupiry original.</p>
+                </article>
+                <article class="item">
+                    <div class="item-topo"><h4>Rúcula com tomate seco</h4><span class="preco">R$ 64</span></div>
+                    <p>Muçarela de búfala, tomate seco, rúcula e lascas de parmesão.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="categoria">
+            <h3>Doces</h3>
+            <div class="itens">
+                <article class="item">
+                    <div class="item-topo"><h4>Chocolate com morango</h4><span class="preco">R$ 56</span></div>
+                    <p>Chocolate ao leite e morangos frescos.</p>
+                </article>
+                <article class="item">
+                    <div class="item-topo"><h4>Banana com canela</h4><span class="preco">R$ 50</span></div>
+                    <p>Banana fatiada, açúcar, canela e leite condensado.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="categoria">
+            <h3>Bebidas</h3>
+            <div class="itens">
+                <article class="item">
+                    <div class="item-topo"><h4>Refrigerante lata</h4><span class="preco">R$ 7</span></div>
+                    <p>Coca-Cola, Guaraná ou Sprite.</p>
+                </article>
+                <article class="item">
+                    <div class="item-topo"><h4>Suco natural</h4><span class="preco">R$ 10</span></div>
+                    <p>Laranja, limão ou maracujá.</p>
+                </article>
+                <article class="item">
+                    <div class="item-topo"><h4>Refrigerante 2 L</h4><span class="preco">R$ 14</span></div>
+                    <p>Coca-Cola ou Guaraná.</p>
+                </article>
+            </div>
         </div>
     </section>
+
+    <section>
+        <div class="locais"></div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 

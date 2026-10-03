@@ -12,7 +12,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* ---------- Header ---------- */
+
 .header {
     position: relative;
     display: flex;
@@ -43,7 +43,7 @@ body {
 
 /* ---------- Carrossel ---------- */
 .slider {
-    position: relative; /* referência para as bolinhas */
+    position: relative; 
     margin: 0 auto;
     width: 80%;
     padding: 5% 0;
@@ -195,7 +195,7 @@ body {
     color: #4a3d30;
 }
 
-/* ---------- Locais ---------- */
+
 section .locais {
     width: 100%;
     min-height: 400px;
@@ -221,5 +221,93 @@ section .locais {
 
     .cardapio {
         width: 92%;
+    }
+}
+
+/* ---------- Fotos do cardápio ---------- */
+.item .foto-pizza {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: #f3e3c8;
+}
+
+.footer {
+    width: 92%;
+    max-width: 1400px;
+    margin: 25px auto;
+    padding: 32px 5%;
+    background-color: rgba(255, 248, 235, 0.96);
+    border-radius: 20px;
+    border: solid;
+}
+
+.footer h2 {
+    font-size: 2.6rem;
+    color: rgb(138, 0, 0);
+    text-align: center;
+}
+
+.footer-sub {
+    text-align: center;
+    margin: 10px 0 40px;
+    color: #5a4a3a;
+}
+
+.footer-fim {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 2px solid orange;
+    font-size: 1rem;
+    color: #5a4a3a;
+}
+
+.footer .item {
+    padding: 20px 22px;
+}
+
+.footer .item h4 {
+    font-size: 1.25rem;
+}
+
+.footer .item p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .footer {
+        width: 92%;
+    }
+}
+
+/* ---------- Logo ---------- */
+.header {
+    height: 150px;
+}
+
+.header .logo {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    height: 130px;
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    .header {
+        height: auto;
+    }
+
+    .header .logo {
+        position: static;
+        transform: none;
+        height: 90px;
     }
 }

@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background-image: url(./imgs/pizzaria_background.png);
+    background-position: center;
+    background-size: contain;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+    background: linear-gradient(to bottom, orange, rgb(255, 166, 0));
+}
+
+.header .buttons {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.header .buttons button {
+    border-radius: 15%;
+    background-color: rgba(138, 0, 0, 0.568);
+    color: rgb(240, 240, 240);
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* ---------- Carrossel ---------- */
+.slider {
+    position: relative; 
+    margin: 0 auto;
+    width: 80%;
+    padding: 5% 0;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+.container {
+    width: 400%;
+    display: flex;
+}
+
+.container input {
+    display: none;
+}
+
+.main-banner {
+    width: 25%;
+    /*instável, por favor não tirar*/
+    height: 500px;
+    position: relative;
+    border-radius: 5%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-banner::after {
+    border-radius: 5%;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255, 166, 0, 0.336), rgba(180, 3, 3, 0));
+}
+
+/* só o primeiro slide se move: assim a transição funciona */
+.SlideOne {
+    background-image: url(./imgs/pizza_carrrosel1.jpg);
+    transition: margin-left 0.6s ease;
+}
+.SlideTwo   { background-image: url(./imgs/pizza_carrrosel2.jpg); }
+.SlideThree { background-image: url(./imgs/pizza_carrrosel3.jpg); }
+.SlideFour  { background-image: url(./imgs/pizza_carrrosel4.jpg); }
+
+#radio1:checked ~ .SlideOne { margin-left: 0; }
+#radio2:checked ~ .SlideOne { margin-left: -25%; }
+#radio3:checked ~ .SlideOne { margin-left: -50%; }
+#radio4:checked ~ .SlideOne { margin-left: -75%; }
+
+.nav-manual,
+.nav-auto {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.nav-manual .botao-manual,
+.nav-auto div {
+    border: solid 1px;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.nav-manual .botao-manual {
+    cursor: pointer;
+}
+
+.nav-manual .botao-manual:hover {
+    background-color: rgb(160, 144, 2);
+}
+
+#radio1:checked ~ .nav-auto .auto-button1,
+#radio2:checked ~ .nav-auto .auto-button2,
+#radio3:checked ~ .nav-auto .auto-button3,
+#radio4:checked ~ .nav-auto .auto-button4 {
+    background-color: black;
+}
+
+.cardapio {
+    width: 80%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px 5%;
+    background-color: rgba(255, 248, 235, 0.96);
+    border-radius: 20px;
+}
+
+.cardapio h2 {
+    font-size: 2.2rem;
+    color: rgb(138, 0, 0);
+    text-align: center;
+}
+
+.cardapio-sub {
+    text-align: center;
+    margin: 8px 0 32px;
+    color: #5a4a3a;
+}
+
+.categoria {
+    margin-bottom: 32px;
+}
+
+.categoria h3 {
+    font-size: 1.4rem;
+    color: rgb(138, 0, 0);
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid orange;
+}
+
+.itens {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.item {
+    padding: 14px 16px;
+    background-color: #fff;
+    border-left: 4px solid orange;
+    border-radius: 8px;
+}
+
+.item-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.item h4 {
+    font-size: 1.05rem;
+}
+
+.preco {
+    font-weight: bold;
+    color: rgb(138, 0, 0);
+    white-space: nowrap;
+}
+
+.item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4a3d30;
+}
+
+
+section .locais {
+    width: 100%;
+    min-height: 400px;
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .header .buttons {
+        position: static;
+        transform: none;
+    }
+
+    .main-banner {
+        height: 300px;
+    }
+
+    .cardapio {
+        width: 92%;
+    }
+}
+
+/* ---------- Fotos do cardápio ---------- */
+.item .foto-pizza {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: #f3e3c8;
+}
+
+.footer {
+    width: 92%;
+    max-width: 1400px;
+    margin: 25px auto;
+    padding: 32px 5%;
+    background-color: rgba(255, 248, 235, 0.96);
+    border-radius: 20px;
+    border: solid;
+}
+
+.footer h2 {
+    font-size: 2.6rem;
+    color: rgb(138, 0, 0);
+    text-align: center;
+}
+
+.footer-sub {
+    text-align: center;
+    margin: 10px 0 40px;
+    color: #5a4a3a;
+}
+
+.footer-fim {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 2px solid orange;
+    font-size: 1rem;
+    color: #5a4a3a;
+}
+
+.footer .item {
+    padding: 20px 22px;
+}
+
+.footer .item h4 {
+    font-size: 1.25rem;
+}
+
+.footer .item p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .footer {
+        width: 92%;
+    }
+}
+
+/* ---------- Logo ---------- */
+.header {
+    height: 150px;
+}
+
+.header .logo {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    height: 130px;
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    .header {
+        height: auto;
+    }
+
+    .header .logo {
+        position: static;
+        transform: none;
+        height: 90px;
+    }
+}
